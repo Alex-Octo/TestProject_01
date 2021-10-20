@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
             {
                 Bullet bullet = Instantiate(bulletPref, transform.position, transform.rotation);
                 bullet.rb.AddForce(transform.up * shootForce);
+                bullet.playerStats = playerStats;
                 playerStats.LoseAmmo(1);
             }
         }

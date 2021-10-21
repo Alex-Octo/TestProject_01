@@ -246,7 +246,7 @@ Transform:
   - {fileID: 1996675561}
   - {fileID: 1106494860}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &175043069
 BoxCollider2D:
@@ -791,7 +791,7 @@ Transform:
   - {fileID: 92988809}
   - {fileID: 2145096395}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &960118946
 GameObject:
@@ -1955,7 +1955,7 @@ Transform:
   m_LocalScale: {x: 0.05, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1858618680
 MonoBehaviour:
@@ -2249,6 +2249,7 @@ GameObject:
   - component: {fileID: 2042142191}
   - component: {fileID: 2042142194}
   - component: {fileID: 2042142193}
+  - component: {fileID: 2042142195}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
@@ -2357,6 +2358,28 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.56
+--- !u!114 &2042142195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042142190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10cb7832ea3427c4ba3f95887bdc8475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnManager: {fileID: 0}
+  minSpeed: 0.3
+  maxSpeed: 1
+  minFireRate: 0
+  maxFireRate: 0
+  minTurningTime: 1
+  maxTurningTime: 8
+  currentSpeed: 0
+  currentFireRate: 0
+  currentTurningTime: 0
 --- !u!1 &2145096394
 GameObject:
   m_ObjectHideFlags: 0

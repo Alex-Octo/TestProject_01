@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
         playerStats = gameObject.GetComponent<PlayerStats>();
         moveSpeed = 1f;
         turnSpeed = 0.1f;
-        shootForce = 500f;
+        shootForce = 400f;
         savedMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 

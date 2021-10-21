@@ -5,12 +5,13 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     Rigidbody2D rb;
-    public SpawnManager spawnManager;
+    public EnemyBullet enemyBulletPref;
+    public SpawnManager spawnManager; 
 
     public float minSpeed;
     public float maxSpeed;
-    public float minFireRate;
-    public float maxFireRate; 
+    public float minFireRate = 0.5f;
+    public float maxFireRate = 3f; 
     public float minTurningTime;
     public float maxTurningTime;
 
@@ -30,7 +31,20 @@ public class Enemy : MonoBehaviour
         currentFireRate = Random.Range(minFireRate, maxFireRate);
         currentTurningTime = Random.Range(minTurningTime, maxTurningTime);
         transform.Rotate(0, 0, Random.Range(0, 360));
+        ChangeFireRate();
         Invoke("ChangeActions", currentTurningTime);
+    }
+
+    private void ChangeFireRate()
+    {
+        CancelInvoke("Shoot");
+        InvokeRepeating("Shoot", 0, currentFireRate);
+    }
+
+    private void Shoot()
+    {
+        EnemyBullet bullet = Instantiate(enemyBulletPref, transform.position, transform.rotation); 
+        bullet.rb.AddForce(transform.up * 400); 
     }
 
     private void ChangeDirection()

@@ -4,24 +4,22 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    Rigidbody2D rb;
     public EnemyBullet enemyBulletPref;
     public SpawnManager spawnManager; 
 
-    public float minSpeed;
-    public float maxSpeed;
+    public float minSpeed = 0.1f;
+    public float maxSpeed = 1.5f;
     public float minFireRate = 0.5f;
     public float maxFireRate = 3f; 
-    public float minTurningTime;
-    public float maxTurningTime;
+    public float minTurningTime = 1f;
+    public float maxTurningTime = 8f;
 
     public float currentSpeed;
     public float currentFireRate;
-    public float currentTurningTime;
+    public float currentTurningTime; //время смены параметров
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
         ChangeActions();
     }
 
@@ -61,7 +59,8 @@ public class Enemy : MonoBehaviour
     {
         if (collision.transform.tag == "Bullet")
         {
-            //spawnManager.StartEnemyCreation();
+            spawnManager.enemiesCount -= 1;
+            spawnManager.StartEnemyCreation();         
             Destroy(gameObject);
         }
         else

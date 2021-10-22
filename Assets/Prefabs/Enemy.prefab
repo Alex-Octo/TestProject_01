@@ -133,11 +133,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10cb7832ea3427c4ba3f95887bdc8475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBulletPref: {fileID: -2334588124436795865, guid: 79a5d3ea117488345a58eabf8fca22ac,
+    type: 3}
   spawnManager: {fileID: 0}
-  minSpeed: 0.3
-  maxSpeed: 1
-  minFireRate: 0
-  maxFireRate: 0
+  minSpeed: 0.1
+  maxSpeed: 1.5
+  minFireRate: 0.5
+  maxFireRate: 3
   minTurningTime: 1
   maxTurningTime: 8
   currentSpeed: 0

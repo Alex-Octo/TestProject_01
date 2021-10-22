@@ -12,8 +12,8 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        playerStats.AddAmmo(1);
-        Destroy(gameObject);
+            playerStats.AddAmmo(1);
+            Destroy(gameObject);
     }
 
 }

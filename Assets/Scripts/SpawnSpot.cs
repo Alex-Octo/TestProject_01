@@ -4,9 +4,9 @@ public class SpawnSpot : MonoBehaviour
 {
     public bool busy = false;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        busy = true;
+        busy = true; 
     }
     private void OnTriggerExit2D(Collider2D collision)
     {

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2438294025675736761}
   - component: {fileID: 2438294025675736760}
   - component: {fileID: 2438294025675736763}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: SpawnSpot
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -13,7 +11,6 @@ public class SpawnManager : MonoBehaviour
     private Vector3 creatingPos;
     public float respawnTimer;
     [HideInInspector] public int enemiesCount;
-    public int enemiesCreated; // просто для удобства подсчета
 
     private void Start() 
     {
@@ -46,7 +43,6 @@ public class SpawnManager : MonoBehaviour
                 creatingPos = spawnObjects[i].transform.position;
                 Enemy enemy = Instantiate(enemyPref, creatingPos, Quaternion.identity);
                 enemy.spawnManager = spawnManager;
-                enemiesCreated += 1;
                 break;
             }
         }      
@@ -60,7 +56,6 @@ public class SpawnManager : MonoBehaviour
             creatingPos = spawnObjects[i].transform.position;
             Enemy enemy = Instantiate(enemyPref, creatingPos, Quaternion.identity);
             enemy.spawnManager = spawnManager;
-            enemiesCreated += 1;
         }
     }
 

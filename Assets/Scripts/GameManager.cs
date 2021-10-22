@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public Text finalText;
+    public Text healthText; 
+    public Text ammoText;
+    public Text enemiesLeftText;
 
     public PlayerController playerController;
     public PlayerStats playerStats;
@@ -33,6 +36,10 @@ public class GameManager : MonoBehaviour
         playerStats = playerStats.GetComponent<PlayerStats>();
         spawnManager = spawnManager.GetComponent<SpawnManager>();
         enemy = enemy.GetComponent<Enemy>();
+
+        healthText.text = playerMaxHp.ToString();
+        ammoText.text = playerMaxAmmo.ToString();
+        enemiesLeftText.text = enemiesNumber.ToString(); 
 
         playerStats.playerMaxHp = playerMaxHp;
         playerStats.playerMaxAmmo = playerMaxAmmo;

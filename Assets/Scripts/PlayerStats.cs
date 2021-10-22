@@ -24,21 +24,35 @@ public class PlayerStats : MonoBehaviour
     public void LoseAmmo(int ammo)
     {
         if (currentAmmo > 0)
+        {
             currentAmmo -= ammo;
+            gameManager.ammoText.text = currentAmmo.ToString();
+        }
     }
     public void AddAmmo(int ammo)
     {
         if (currentAmmo < playerMaxAmmo)
+        {
             currentAmmo += ammo;
+            gameManager.ammoText.text = currentAmmo.ToString();
+        }
     }
 
     public void LoseHealth(int hp)
     {
         currentHp -= hp;
         if (currentHp <= 0)
+        {
+            gameManager.healthText.text = 0.ToString();
             gameManager.StartLoadingMenu(false);
+            gameObject.SetActive(false);
+        }
         else
+        {
+            gameManager.healthText.text = currentHp.ToString();
+            rb.velocity = Vector2.zero;
             spawnManager.RespawnHero();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

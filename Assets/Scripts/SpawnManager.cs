@@ -30,6 +30,11 @@ public class SpawnManager : MonoBehaviour
         }
         else if (enemiesCount <= -4)
             gameManager.StartLoadingMenu(true);
+
+        if (enemiesCount > -4)
+            gameManager.enemiesLeftText.text = (enemiesCount + 4).ToString();
+        else
+            gameManager.enemiesLeftText.text = 0.ToString();
     }
 
     public void CreateEnemy()

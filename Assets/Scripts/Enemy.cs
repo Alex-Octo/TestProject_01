@@ -7,18 +7,18 @@ public class Enemy : MonoBehaviour
     public EnemyBullet enemyBulletPref;
     public SpawnManager spawnManager; 
 
-    public float minSpeed = 0.1f;
-    public float maxSpeed = 1.5f;
-    public float minFireRate = 0.5f;
-    public float maxFireRate = 3f; 
-    public float minTurningTime = 1f;
-    public float maxTurningTime = 8f;
+    public float minSpeed;
+    public float maxSpeed;
+    public float minFireRate;
+    public float maxFireRate; 
+    public float minTurningTime;
+    public float maxTurningTime; 
 
     public float currentSpeed;
     public float currentFireRate;
     public float currentTurningTime; //время смены параметров
 
-    private void Awake()
+    private void Start()
     {
         ChangeActions();
     }
@@ -60,6 +60,7 @@ public class Enemy : MonoBehaviour
         if (collision.transform.tag == "Bullet")
         {
             spawnManager.enemiesCount -= 1;
+            spawnManager.respawnTimer -= 0.1f;
             spawnManager.StartEnemyCreation();         
             Destroy(gameObject);
         }

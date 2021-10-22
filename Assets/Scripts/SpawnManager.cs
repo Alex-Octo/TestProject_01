@@ -6,15 +6,18 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject[] spawnObjects;
 
+    public GameManager gameManager;
     private SpawnManager spawnManager;
+    public GameObject player;
     public Enemy enemyPref;
     private Vector3 creatingPos;
-    public float respawnTimer = 3f;
-    public int enemiesCount = 19;
+    public float respawnTimer;
+    [HideInInspector] public int enemiesCount;
     public int enemiesCreated; // просто для удобства подсчета
 
-    private void Awake()
+    private void Start() 
     {
+        gameManager = gameManager.GetComponent<GameManager>();
         spawnManager = GetComponent<SpawnManager>();
         Invoke("FirstFiveSpawn", 2f); 
     }
@@ -24,10 +27,9 @@ public class SpawnManager : MonoBehaviour
         if (enemiesCount > 0)
         {
             Invoke("CreateEnemy", respawnTimer);
-            respawnTimer -= 0.1f;
         }
         else if (enemiesCount <= -4)
-            print("gg");
+            gameManager.StartLoadingMenu(true);
     }
 
     public void CreateEnemy()
@@ -54,6 +56,19 @@ public class SpawnManager : MonoBehaviour
             Enemy enemy = Instantiate(enemyPref, creatingPos, Quaternion.identity);
             enemy.spawnManager = spawnManager;
             enemiesCreated += 1;
+        }
+    }
+
+    public void RespawnHero()
+    {
+        for (int i = 0; i < spawnObjects.Length; i++)
+        {
+            if (spawnObjects[i].GetComponent<SpawnSpot>().busy == false)
+            {
+                creatingPos = spawnObjects[i].transform.position;
+                player.transform.position = creatingPos;
+                break;
+            }
         }
     }
 
